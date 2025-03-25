@@ -37,10 +37,12 @@ function transformStateWithClones(state, actions) {
           }
         }
         break;
+      default:
+        throw new Error('Unknown Action');
     }
 
     statesHistory.push(nextState);
-    currentState = nextState; // Оновлюємо поточний стан для наступної ітерації
+    currentState = nextState;
   }
 
   return statesHistory;
